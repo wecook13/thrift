@@ -1,0 +1,35 @@
+have_func: checking for strlcpy() in string.h... -------------------- yes
+
+"/usr/bin/clang -o conftest -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.3.0 -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/opt/local/include   -fsigned-char -g -O2 -Wall -Werror  conftest.c  -L. -L/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/lib -L/opt/local/lib -L. -fstack-protector -L/opt/local/lib      -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"/usr/bin/clang -o conftest -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0/x86_64-darwin12.3.0 -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0/ruby/backward -I/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/opt/local/include   -fsigned-char -g -O2 -Wall -Werror  conftest.c  -L. -L/Users/bohu/.rvm/rubies/ruby-2.0.0-p247/lib -L/opt/local/lib -L. -fstack-protector -L/opt/local/lib      -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <string.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))strlcpy; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
